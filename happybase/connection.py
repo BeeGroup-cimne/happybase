@@ -7,11 +7,12 @@ HappyBase connection module.
 import logging
 
 import six
-from thriftpy2.thrift import TClient
-from thriftpy2.transport import TBufferedTransport, TFramedTransport, TSocket
-from thriftpy2.protocol import TBinaryProtocol, TCompactProtocol
-
-from Hbase_thrift import Hbase, ColumnDescriptor
+#from thriftpy2.thrift import TClient
+#from thriftpy2.transport import TBufferedTransport, TFramedTransport, TSocket
+#from thriftpy2.protocol import TBinaryProtocol, TCompactProtocol
+from thrift.transport import TTransport, TSocket
+from thrift.protocol import TBinaryProtocol, TCompactProtocol
+from .hbase import Hbase, ColumnDescriptor
 
 from .table import Table
 from .util import ensure_bytes, pep8_to_camel_case
@@ -22,8 +23,8 @@ STRING_OR_BINARY = (six.binary_type, six.text_type)
 
 COMPAT_MODES = ('0.90', '0.92', '0.94', '0.96', '0.98')
 THRIFT_TRANSPORTS = dict(
-    buffered=TBufferedTransport,
-    framed=TFramedTransport,
+    buffered=TTransport.TBufferedTransport,
+    framed=TTransport.TFramedTransport,
 )
 THRIFT_PROTOCOLS = dict(
     binary=TBinaryProtocol,
@@ -35,7 +36,7 @@ DEFAULT_PORT = 9090
 DEFAULT_TRANSPORT = 'buffered'
 DEFAULT_COMPAT = '0.98'
 DEFAULT_PROTOCOL = 'binary'
-
+DEFAULT_AUTH = 'NOSSL'
 
 class Connection(object):
     """Connection to an HBase Thrift server.
@@ -149,12 +150,13 @@ class Connection(object):
 
         self._initialized = True
 
-    def _refresh_thrift_client(self):
+    def _refresh_thrift_client(self, **kwargs):
         """Refresh the Thrift socket, transport, and client."""
-        socket = TSocket(host=self.host, port=self.port, socket_timeout=self.timeout)
-
+        socket = TSocket(host=self.host, port=self.port)
+        #socket = TSocket(host=self.host, port=self.port, socket_timeout=self.timeout)
         self.transport = self._transport_class(socket)
-        protocol = self._protocol_class(self.transport, decode_response=False)
+        #if DEFAULT_AUTH == None:
+        protocol = self._protocol_class(self.transport)
         self.client = TClient(Hbase, protocol)
 
     def _table_name(self, name):
@@ -169,7 +171,7 @@ class Connection(object):
 
         This method opens the underlying Thrift transport (TCP connection).
         """
-        if self.transport.is_open():
+        if self.transport.():
             return
 
         logger.debug("Opening Thrift transport to %s:%d", self.host, self.port)
