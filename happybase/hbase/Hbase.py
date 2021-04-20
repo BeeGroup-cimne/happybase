@@ -3885,7 +3885,7 @@ class getTableNames_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype47, _size44) = iprot.readListBegin()
-          for _i48 in xrange(_size44):
+          for _i48 in range(_size44):
             _elem49 = iprot.readString();
             self.success.append(_elem49)
           iprot.readListEnd()
@@ -4025,7 +4025,7 @@ class getColumnDescriptors_result:
         if ftype == TType.MAP:
           self.success = {}
           (_ktype52, _vtype53, _size51 ) = iprot.readMapBegin()
-          for _i55 in xrange(_size51):
+          for _i55 in range(_size51):
             _key56 = iprot.readString();
             _val57 = ColumnDescriptor()
             _val57.read(iprot)
@@ -4168,7 +4168,7 @@ class getTableRegions_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype63, _size60) = iprot.readListBegin()
-          for _i64 in xrange(_size60):
+          for _i64 in range(_size60):
             _elem65 = TRegionInfo()
             _elem65.read(iprot)
             self.success.append(_elem65)
@@ -4255,7 +4255,7 @@ class createTable_args:
         if ftype == TType.LIST:
           self.columnFamilies = []
           (_etype70, _size67) = iprot.readListBegin()
-          for _i71 in xrange(_size67):
+          for _i71 in range(_size67):
             _elem72 = ColumnDescriptor()
             _elem72.read(iprot)
             self.columnFamilies.append(_elem72)
@@ -4560,7 +4560,7 @@ class get_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype75, _vtype76, _size74 ) = iprot.readMapBegin()
-          for _i78 in xrange(_size74):
+          for _i78 in range(_size74):
             _key79 = iprot.readString();
             _val80 = iprot.readString();
             self.attributes[_key79] = _val80
@@ -4644,7 +4644,7 @@ class get_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype86, _size83) = iprot.readListBegin()
-          for _i87 in xrange(_size83):
+          for _i87 in range(_size83):
             _elem88 = TCell()
             _elem88.read(iprot)
             self.success.append(_elem88)
@@ -4755,7 +4755,7 @@ class getVer_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype91, _vtype92, _size90 ) = iprot.readMapBegin()
-          for _i94 in xrange(_size90):
+          for _i94 in range(_size90):
             _key95 = iprot.readString();
             _val96 = iprot.readString();
             self.attributes[_key95] = _val96
@@ -4843,7 +4843,7 @@ class getVer_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype102, _size99) = iprot.readListBegin()
-          for _i103 in xrange(_size99):
+          for _i103 in range(_size99):
             _elem104 = TCell()
             _elem104.read(iprot)
             self.success.append(_elem104)
@@ -4962,7 +4962,7 @@ class getVerTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype107, _vtype108, _size106 ) = iprot.readMapBegin()
-          for _i110 in xrange(_size106):
+          for _i110 in range(_size106):
             _key111 = iprot.readString();
             _val112 = iprot.readString();
             self.attributes[_key111] = _val112
@@ -5054,7 +5054,7 @@ class getVerTs_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype118, _size115) = iprot.readListBegin()
-          for _i119 in xrange(_size115):
+          for _i119 in range(_size115):
             _elem120 = TCell()
             _elem120.read(iprot)
             self.success.append(_elem120)
@@ -5149,7 +5149,7 @@ class getRow_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype123, _vtype124, _size122 ) = iprot.readMapBegin()
-          for _i126 in xrange(_size122):
+          for _i126 in range(_size122):
             _key127 = iprot.readString();
             _val128 = iprot.readString();
             self.attributes[_key127] = _val128
@@ -5229,7 +5229,7 @@ class getRow_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype134, _size131) = iprot.readListBegin()
-          for _i135 in xrange(_size131):
+          for _i135 in range(_size131):
             _elem136 = TRowResult()
             _elem136.read(iprot)
             self.success.append(_elem136)
@@ -5327,7 +5327,7 @@ class getRowWithColumns_args:
         if ftype == TType.LIST:
           self.columns = []
           (_etype141, _size138) = iprot.readListBegin()
-          for _i142 in xrange(_size138):
+          for _i142 in range(_size138):
             _elem143 = iprot.readString();
             self.columns.append(_elem143)
           iprot.readListEnd()
@@ -5337,7 +5337,7 @@ class getRowWithColumns_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype145, _vtype146, _size144 ) = iprot.readMapBegin()
-          for _i148 in xrange(_size144):
+          for _i148 in range(_size144):
             _key149 = iprot.readString();
             _val150 = iprot.readString();
             self.attributes[_key149] = _val150
@@ -5424,7 +5424,7 @@ class getRowWithColumns_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype157, _size154) = iprot.readListBegin()
-          for _i158 in xrange(_size154):
+          for _i158 in range(_size154):
             _elem159 = TRowResult()
             _elem159.read(iprot)
             self.success.append(_elem159)
@@ -5527,7 +5527,7 @@ class getRowTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype162, _vtype163, _size161 ) = iprot.readMapBegin()
-          for _i165 in xrange(_size161):
+          for _i165 in range(_size161):
             _key166 = iprot.readString();
             _val167 = iprot.readString();
             self.attributes[_key166] = _val167
@@ -5611,7 +5611,7 @@ class getRowTs_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype173, _size170) = iprot.readListBegin()
-          for _i174 in xrange(_size170):
+          for _i174 in range(_size170):
             _elem175 = TRowResult()
             _elem175.read(iprot)
             self.success.append(_elem175)
@@ -5712,7 +5712,7 @@ class getRowWithColumnsTs_args:
         if ftype == TType.LIST:
           self.columns = []
           (_etype180, _size177) = iprot.readListBegin()
-          for _i181 in xrange(_size177):
+          for _i181 in range(_size177):
             _elem182 = iprot.readString();
             self.columns.append(_elem182)
           iprot.readListEnd()
@@ -5727,7 +5727,7 @@ class getRowWithColumnsTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype184, _vtype185, _size183 ) = iprot.readMapBegin()
-          for _i187 in xrange(_size183):
+          for _i187 in range(_size183):
             _key188 = iprot.readString();
             _val189 = iprot.readString();
             self.attributes[_key188] = _val189
@@ -5818,7 +5818,7 @@ class getRowWithColumnsTs_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype196, _size193) = iprot.readListBegin()
-          for _i197 in xrange(_size193):
+          for _i197 in range(_size193):
             _elem198 = TRowResult()
             _elem198.read(iprot)
             self.success.append(_elem198)
@@ -5908,7 +5908,7 @@ class getRows_args:
         if ftype == TType.LIST:
           self.rows = []
           (_etype203, _size200) = iprot.readListBegin()
-          for _i204 in xrange(_size200):
+          for _i204 in range(_size200):
             _elem205 = iprot.readString();
             self.rows.append(_elem205)
           iprot.readListEnd()
@@ -5918,7 +5918,7 @@ class getRows_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype207, _vtype208, _size206 ) = iprot.readMapBegin()
-          for _i210 in xrange(_size206):
+          for _i210 in range(_size206):
             _key211 = iprot.readString();
             _val212 = iprot.readString();
             self.attributes[_key211] = _val212
@@ -6001,7 +6001,7 @@ class getRows_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype219, _size216) = iprot.readListBegin()
-          for _i220 in xrange(_size216):
+          for _i220 in range(_size216):
             _elem221 = TRowResult()
             _elem221.read(iprot)
             self.success.append(_elem221)
@@ -6094,7 +6094,7 @@ class getRowsWithColumns_args:
         if ftype == TType.LIST:
           self.rows = []
           (_etype226, _size223) = iprot.readListBegin()
-          for _i227 in xrange(_size223):
+          for _i227 in range(_size223):
             _elem228 = iprot.readString();
             self.rows.append(_elem228)
           iprot.readListEnd()
@@ -6104,7 +6104,7 @@ class getRowsWithColumns_args:
         if ftype == TType.LIST:
           self.columns = []
           (_etype232, _size229) = iprot.readListBegin()
-          for _i233 in xrange(_size229):
+          for _i233 in range(_size229):
             _elem234 = iprot.readString();
             self.columns.append(_elem234)
           iprot.readListEnd()
@@ -6114,7 +6114,7 @@ class getRowsWithColumns_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype236, _vtype237, _size235 ) = iprot.readMapBegin()
-          for _i239 in xrange(_size235):
+          for _i239 in range(_size235):
             _key240 = iprot.readString();
             _val241 = iprot.readString();
             self.attributes[_key240] = _val241
@@ -6204,7 +6204,7 @@ class getRowsWithColumns_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype249, _size246) = iprot.readListBegin()
-          for _i250 in xrange(_size246):
+          for _i250 in range(_size246):
             _elem251 = TRowResult()
             _elem251.read(iprot)
             self.success.append(_elem251)
@@ -6297,7 +6297,7 @@ class getRowsTs_args:
         if ftype == TType.LIST:
           self.rows = []
           (_etype256, _size253) = iprot.readListBegin()
-          for _i257 in xrange(_size253):
+          for _i257 in range(_size253):
             _elem258 = iprot.readString();
             self.rows.append(_elem258)
           iprot.readListEnd()
@@ -6312,7 +6312,7 @@ class getRowsTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype260, _vtype261, _size259 ) = iprot.readMapBegin()
-          for _i263 in xrange(_size259):
+          for _i263 in range(_size259):
             _key264 = iprot.readString();
             _val265 = iprot.readString();
             self.attributes[_key264] = _val265
@@ -6399,7 +6399,7 @@ class getRowsTs_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype272, _size269) = iprot.readListBegin()
-          for _i273 in xrange(_size269):
+          for _i273 in range(_size269):
             _elem274 = TRowResult()
             _elem274.read(iprot)
             self.success.append(_elem274)
@@ -6495,7 +6495,7 @@ class getRowsWithColumnsTs_args:
         if ftype == TType.LIST:
           self.rows = []
           (_etype279, _size276) = iprot.readListBegin()
-          for _i280 in xrange(_size276):
+          for _i280 in range(_size276):
             _elem281 = iprot.readString();
             self.rows.append(_elem281)
           iprot.readListEnd()
@@ -6505,7 +6505,7 @@ class getRowsWithColumnsTs_args:
         if ftype == TType.LIST:
           self.columns = []
           (_etype285, _size282) = iprot.readListBegin()
-          for _i286 in xrange(_size282):
+          for _i286 in range(_size282):
             _elem287 = iprot.readString();
             self.columns.append(_elem287)
           iprot.readListEnd()
@@ -6520,7 +6520,7 @@ class getRowsWithColumnsTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype289, _vtype290, _size288 ) = iprot.readMapBegin()
-          for _i292 in xrange(_size288):
+          for _i292 in range(_size288):
             _key293 = iprot.readString();
             _val294 = iprot.readString();
             self.attributes[_key293] = _val294
@@ -6614,7 +6614,7 @@ class getRowsWithColumnsTs_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype302, _size299) = iprot.readListBegin()
-          for _i303 in xrange(_size299):
+          for _i303 in range(_size299):
             _elem304 = TRowResult()
             _elem304.read(iprot)
             self.success.append(_elem304)
@@ -6712,7 +6712,7 @@ class mutateRow_args:
         if ftype == TType.LIST:
           self.mutations = []
           (_etype309, _size306) = iprot.readListBegin()
-          for _i310 in xrange(_size306):
+          for _i310 in range(_size306):
             _elem311 = Mutation()
             _elem311.read(iprot)
             self.mutations.append(_elem311)
@@ -6723,7 +6723,7 @@ class mutateRow_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype313, _vtype314, _size312 ) = iprot.readMapBegin()
-          for _i316 in xrange(_size312):
+          for _i316 in range(_size312):
             _key317 = iprot.readString();
             _val318 = iprot.readString();
             self.attributes[_key317] = _val318
@@ -6904,7 +6904,7 @@ class mutateRowTs_args:
         if ftype == TType.LIST:
           self.mutations = []
           (_etype325, _size322) = iprot.readListBegin()
-          for _i326 in xrange(_size322):
+          for _i326 in range(_size322):
             _elem327 = Mutation()
             _elem327.read(iprot)
             self.mutations.append(_elem327)
@@ -6920,7 +6920,7 @@ class mutateRowTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype329, _vtype330, _size328 ) = iprot.readMapBegin()
-          for _i332 in xrange(_size328):
+          for _i332 in range(_size328):
             _key333 = iprot.readString();
             _val334 = iprot.readString();
             self.attributes[_key333] = _val334
@@ -7094,7 +7094,7 @@ class mutateRows_args:
         if ftype == TType.LIST:
           self.rowBatches = []
           (_etype341, _size338) = iprot.readListBegin()
-          for _i342 in xrange(_size338):
+          for _i342 in range(_size338):
             _elem343 = BatchMutation()
             _elem343.read(iprot)
             self.rowBatches.append(_elem343)
@@ -7105,7 +7105,7 @@ class mutateRows_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype345, _vtype346, _size344 ) = iprot.readMapBegin()
-          for _i348 in xrange(_size344):
+          for _i348 in range(_size344):
             _key349 = iprot.readString();
             _val350 = iprot.readString();
             self.attributes[_key349] = _val350
@@ -7274,7 +7274,7 @@ class mutateRowsTs_args:
         if ftype == TType.LIST:
           self.rowBatches = []
           (_etype357, _size354) = iprot.readListBegin()
-          for _i358 in xrange(_size354):
+          for _i358 in range(_size354):
             _elem359 = BatchMutation()
             _elem359.read(iprot)
             self.rowBatches.append(_elem359)
@@ -7290,7 +7290,7 @@ class mutateRowsTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype361, _vtype362, _size360 ) = iprot.readMapBegin()
-          for _i364 in xrange(_size360):
+          for _i364 in range(_size360):
             _key365 = iprot.readString();
             _val366 = iprot.readString();
             self.attributes[_key365] = _val366
@@ -7654,7 +7654,7 @@ class deleteAll_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype371, _vtype372, _size370 ) = iprot.readMapBegin()
-          for _i374 in xrange(_size370):
+          for _i374 in range(_size370):
             _key375 = iprot.readString();
             _val376 = iprot.readString();
             self.attributes[_key375] = _val376
@@ -7829,7 +7829,7 @@ class deleteAllTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype380, _vtype381, _size379 ) = iprot.readMapBegin()
-          for _i383 in xrange(_size379):
+          for _i383 in range(_size379):
             _key384 = iprot.readString();
             _val385 = iprot.readString();
             self.attributes[_key384] = _val385
@@ -7992,7 +7992,7 @@ class deleteAllRow_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype389, _vtype390, _size388 ) = iprot.readMapBegin()
-          for _i392 in xrange(_size388):
+          for _i392 in range(_size388):
             _key393 = iprot.readString();
             _val394 = iprot.readString();
             self.attributes[_key393] = _val394
@@ -8253,7 +8253,7 @@ class incrementRows_args:
         if ftype == TType.LIST:
           self.increments = []
           (_etype400, _size397) = iprot.readListBegin()
-          for _i401 in xrange(_size397):
+          for _i401 in range(_size397):
             _elem402 = TIncrement()
             _elem402.read(iprot)
             self.increments.append(_elem402)
@@ -8407,7 +8407,7 @@ class deleteAllRowTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype405, _vtype406, _size404 ) = iprot.readMapBegin()
-          for _i408 in xrange(_size404):
+          for _i408 in range(_size404):
             _key409 = iprot.readString();
             _val410 = iprot.readString();
             self.attributes[_key409] = _val410
@@ -8567,7 +8567,7 @@ class scannerOpenWithScan_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype414, _vtype415, _size413 ) = iprot.readMapBegin()
-          for _i417 in xrange(_size413):
+          for _i417 in range(_size413):
             _key418 = iprot.readString();
             _val419 = iprot.readString();
             self.attributes[_key418] = _val419
@@ -8739,7 +8739,7 @@ class scannerOpen_args:
         if ftype == TType.LIST:
           self.columns = []
           (_etype425, _size422) = iprot.readListBegin()
-          for _i426 in xrange(_size422):
+          for _i426 in range(_size422):
             _elem427 = iprot.readString();
             self.columns.append(_elem427)
           iprot.readListEnd()
@@ -8749,7 +8749,7 @@ class scannerOpen_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype429, _vtype430, _size428 ) = iprot.readMapBegin()
-          for _i432 in xrange(_size428):
+          for _i432 in range(_size428):
             _key433 = iprot.readString();
             _val434 = iprot.readString();
             self.attributes[_key433] = _val434
@@ -8937,7 +8937,7 @@ class scannerOpenWithStop_args:
         if ftype == TType.LIST:
           self.columns = []
           (_etype441, _size438) = iprot.readListBegin()
-          for _i442 in xrange(_size438):
+          for _i442 in range(_size438):
             _elem443 = iprot.readString();
             self.columns.append(_elem443)
           iprot.readListEnd()
@@ -8947,7 +8947,7 @@ class scannerOpenWithStop_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype445, _vtype446, _size444 ) = iprot.readMapBegin()
-          for _i448 in xrange(_size444):
+          for _i448 in range(_size444):
             _key449 = iprot.readString();
             _val450 = iprot.readString();
             self.attributes[_key449] = _val450
@@ -9127,7 +9127,7 @@ class scannerOpenWithPrefix_args:
         if ftype == TType.LIST:
           self.columns = []
           (_etype457, _size454) = iprot.readListBegin()
-          for _i458 in xrange(_size454):
+          for _i458 in range(_size454):
             _elem459 = iprot.readString();
             self.columns.append(_elem459)
           iprot.readListEnd()
@@ -9137,7 +9137,7 @@ class scannerOpenWithPrefix_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype461, _vtype462, _size460 ) = iprot.readMapBegin()
-          for _i464 in xrange(_size460):
+          for _i464 in range(_size460):
             _key465 = iprot.readString();
             _val466 = iprot.readString();
             self.attributes[_key465] = _val466
@@ -9319,7 +9319,7 @@ class scannerOpenTs_args:
         if ftype == TType.LIST:
           self.columns = []
           (_etype473, _size470) = iprot.readListBegin()
-          for _i474 in xrange(_size470):
+          for _i474 in range(_size470):
             _elem475 = iprot.readString();
             self.columns.append(_elem475)
           iprot.readListEnd()
@@ -9334,7 +9334,7 @@ class scannerOpenTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype477, _vtype478, _size476 ) = iprot.readMapBegin()
-          for _i480 in xrange(_size476):
+          for _i480 in range(_size476):
             _key481 = iprot.readString();
             _val482 = iprot.readString();
             self.attributes[_key481] = _val482
@@ -9529,7 +9529,7 @@ class scannerOpenWithStopTs_args:
         if ftype == TType.LIST:
           self.columns = []
           (_etype489, _size486) = iprot.readListBegin()
-          for _i490 in xrange(_size486):
+          for _i490 in range(_size486):
             _elem491 = iprot.readString();
             self.columns.append(_elem491)
           iprot.readListEnd()
@@ -9544,7 +9544,7 @@ class scannerOpenWithStopTs_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype493, _vtype494, _size492 ) = iprot.readMapBegin()
-          for _i496 in xrange(_size492):
+          for _i496 in range(_size492):
             _key497 = iprot.readString();
             _val498 = iprot.readString();
             self.attributes[_key497] = _val498
@@ -9774,7 +9774,7 @@ class scannerGet_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype505, _size502) = iprot.readListBegin()
-          for _i506 in xrange(_size502):
+          for _i506 in range(_size502):
             _elem507 = TRowResult()
             _elem507.read(iprot)
             self.success.append(_elem507)
@@ -9940,7 +9940,7 @@ class scannerGetList_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype512, _size509) = iprot.readListBegin()
-          for _i513 in xrange(_size509):
+          for _i513 in range(_size509):
             _elem514 = TRowResult()
             _elem514.read(iprot)
             self.success.append(_elem514)
@@ -10249,7 +10249,7 @@ class getRowOrBefore_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype519, _size516) = iprot.readListBegin()
-          for _i520 in xrange(_size516):
+          for _i520 in range(_size516):
             _elem521 = TCell()
             _elem521.read(iprot)
             self.success.append(_elem521)
@@ -10524,7 +10524,7 @@ class append_result:
         if ftype == TType.LIST:
           self.success = []
           (_etype526, _size523) = iprot.readListBegin()
-          for _i527 in xrange(_size523):
+          for _i527 in range(_size523):
             _elem528 = TCell()
             _elem528.read(iprot)
             self.success.append(_elem528)
@@ -10647,7 +10647,7 @@ class checkAndPut_args:
         if ftype == TType.MAP:
           self.attributes = {}
           (_ktype531, _vtype532, _size530 ) = iprot.readMapBegin()
-          for _i534 in xrange(_size530):
+          for _i534 in range(_size530):
             _key535 = iprot.readString();
             _val536 = iprot.readString();
             self.attributes[_key535] = _val536

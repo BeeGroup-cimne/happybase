@@ -9,7 +9,6 @@ import threading
 
 from six.moves import queue, range
 
-from thriftpy2.thrift import TException
 
 from .connection import Connection
 
@@ -138,7 +137,7 @@ class ConnectionPool(object):
             # Return value from the context manager's __enter__()
             yield connection
 
-        except (TException, socket.error):
+        except Exception as error:
             # Refresh the underlying Thrift client if an exception
             # occurred in the Thrift layer, since we don't know whether
             # the connection is still usable.

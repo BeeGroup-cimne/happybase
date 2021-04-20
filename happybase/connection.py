@@ -6,16 +6,12 @@ HappyBase connection module.
 
 import logging
 
-import six
-#from thriftpy2.thrift import TClient
-#from thriftpy2.transport import TBufferedTransport, TFramedTransport, TSocket
-#from thriftpy2.protocol import TBinaryProtocol, TCompactProtocol
 from thrift.transport import TTransport, TSocket
 from thrift.protocol import TBinaryProtocol, TCompactProtocol
 from .hbase import Hbase, ColumnDescriptor
 
 from .table import Table
-from .util import ensure_bytes, pep8_to_camel_case
+from .util import *
 
 logger = logging.getLogger(__name__)
 
@@ -37,6 +33,7 @@ DEFAULT_TRANSPORT = 'buffered'
 DEFAULT_COMPAT = '0.98'
 DEFAULT_PROTOCOL = 'binary'
 DEFAULT_AUTH = 'NOSSL'
+
 
 class Connection(object):
     """Connection to an HBase Thrift server.
@@ -118,11 +115,11 @@ class Connection(object):
         if table_prefix is not None:
             if not isinstance(table_prefix, STRING_OR_BINARY):
                 raise TypeError("'table_prefix' must be a string")
-            table_prefix = ensure_bytes(table_prefix)
+            table_prefix = ensure_str(table_prefix)
 
         if not isinstance(table_prefix_separator, STRING_OR_BINARY):
             raise TypeError("'table_prefix_separator' must be a string")
-        table_prefix_separator = ensure_bytes(table_prefix_separator)
+        table_prefix_separator = ensure_str(table_prefix_separator)
 
         if compat not in COMPAT_MODES:
             raise ValueError("'compat' must be one of %s"
@@ -152,16 +149,15 @@ class Connection(object):
 
     def _refresh_thrift_client(self, **kwargs):
         """Refresh the Thrift socket, transport, and client."""
-        socket = TSocket(host=self.host, port=self.port)
-        #socket = TSocket(host=self.host, port=self.port, socket_timeout=self.timeout)
-        self.transport = self._transport_class(socket)
-        #if DEFAULT_AUTH == None:
-        protocol = self._protocol_class(self.transport)
-        self.client = TClient(Hbase, protocol)
+        socket = TSocket.TSocket(host=self.host, port=self.port)
+        TSaslClientTransport = correct_thrift_SASL(TTransport.TSaslClientTransport)
+        self.transport = TSaslClientTransport(socket, host=self.host, service="hbase", mechanism='GSSAPI')
+        protocol = TBinaryProtocol.TBinaryProtocol(self.transport)
+        self.client = Hbase.Client(protocol)
 
     def _table_name(self, name):
         """Construct a table name by optionally adding a table name prefix."""
-        name = ensure_bytes(name)
+        name = ensure_str(name)
         if self.table_prefix is None:
             return name
         return self.table_prefix + self.table_prefix_separator + name
@@ -171,7 +167,7 @@ class Connection(object):
 
         This method opens the underlying Thrift transport (TCP connection).
         """
-        if self.transport.():
+        if self.transport.isOpen():
             return
 
         logger.debug("Opening Thrift transport to %s:%d", self.host, self.port)
@@ -182,7 +178,7 @@ class Connection(object):
 
         This method closes the underlying Thrift transport (TCP connection).
         """
-        if not self.transport.is_open():
+        if not self.transport.isOpen():
             return
 
         if logger is not None:
@@ -223,7 +219,7 @@ class Connection(object):
         :return: Table instance
         :rtype: :py:class:`Table`
         """
-        name = ensure_bytes(name)
+        name = ensure_str(name)
         if use_prefix:
             name = self._table_name(name)
         return Table(name, self)

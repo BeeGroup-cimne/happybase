@@ -64,14 +64,14 @@ class Table(object):
         descriptors = self.connection.client.getColumnDescriptors(self.name)
         families = dict()
         for name, descriptor in descriptors.items():
-            name = name.rstrip(b':')
+            name = name.rstrip(':')
             families[name] = thrift_type_to_dict(descriptor)
         return families
 
     def _column_family_names(self):
         """Retrieve the column family names for this table (internal use)"""
         names = self.connection.client.getColumnDescriptors(self.name).keys()
-        return [name.rstrip(b':') for name in names]
+        return [name.rstrip(':') for name in names]
 
     def regions(self):
         """Retrieve the regions for this table.
@@ -456,10 +456,17 @@ class Table(object):
            `wal` argument
 
         :param str row: the row key
-        :param dict data: the data to store
+        :param dict data: the data to store ( it must be all strings)
         :param int timestamp: timestamp (optional)
         :param wal bool: whether to write to the WAL (optional)
         """
+
+        # All information must be strings so we check it here
+        for k, v in data.items():
+            if not isinstance(k, str) or ":" not in k:
+                raise Exception("Key must be string and must contain both column_family and column name, like 'm:f'")
+            if not isinstance(v, str):
+                raise Exception("Values must be strings")
         with self.batch(timestamp=timestamp, wal=wal) as batch:
             batch.put(row, data)
 

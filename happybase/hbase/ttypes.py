@@ -85,7 +85,7 @@ class TCell:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -245,7 +245,7 @@ class ColumnDescriptor:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -379,7 +379,7 @@ class TRegionInfo:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -477,7 +477,7 @@ class Mutation:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -523,7 +523,7 @@ class BatchMutation:
         if ftype == TType.LIST:
           self.mutations = []
           (_etype3, _size0) = iprot.readListBegin()
-          for _i4 in xrange(_size0):
+          for _i4 in range(_size0):
             _elem5 = Mutation()
             _elem5.read(iprot)
             self.mutations.append(_elem5)
@@ -560,7 +560,7 @@ class BatchMutation:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -659,7 +659,7 @@ class TIncrement:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -734,7 +734,7 @@ class TColumn:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -783,7 +783,7 @@ class TRowResult:
         if ftype == TType.MAP:
           self.columns = {}
           (_ktype8, _vtype9, _size7 ) = iprot.readMapBegin()
-          for _i11 in xrange(_size7):
+          for _i11 in range(_size7):
             _key12 = iprot.readString();
             _val13 = TCell()
             _val13.read(iprot)
@@ -795,7 +795,7 @@ class TRowResult:
         if ftype == TType.LIST:
           self.sortedColumns = []
           (_etype17, _size14) = iprot.readListBegin()
-          for _i18 in xrange(_size14):
+          for _i18 in range(_size14):
             _elem19 = TColumn()
             _elem19.read(iprot)
             self.sortedColumns.append(_elem19)
@@ -840,7 +840,7 @@ class TRowResult:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -917,7 +917,7 @@ class TScan:
         if ftype == TType.LIST:
           self.columns = []
           (_etype26, _size23) = iprot.readListBegin()
-          for _i27 in xrange(_size23):
+          for _i27 in range(_size23):
             _elem28 = iprot.readString();
             self.columns.append(_elem28)
           iprot.readListEnd()
@@ -1006,7 +1006,7 @@ class TScan:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -1063,7 +1063,7 @@ class TAppend:
         if ftype == TType.LIST:
           self.columns = []
           (_etype33, _size30) = iprot.readListBegin()
-          for _i34 in xrange(_size30):
+          for _i34 in range(_size30):
             _elem35 = iprot.readString();
             self.columns.append(_elem35)
           iprot.readListEnd()
@@ -1073,7 +1073,7 @@ class TAppend:
         if ftype == TType.LIST:
           self.values = []
           (_etype39, _size36) = iprot.readListBegin()
-          for _i40 in xrange(_size36):
+          for _i40 in range(_size36):
             _elem41 = iprot.readString();
             self.values.append(_elem41)
           iprot.readListEnd()
@@ -1120,7 +1120,7 @@ class TAppend:
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -1187,7 +1187,7 @@ class IOError(TException):
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -1253,7 +1253,7 @@ class IllegalArgument(TException):
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):
@@ -1319,7 +1319,7 @@ class AlreadyExists(TException):
 
   def __repr__(self):
     L = ['%s=%r' % (key, value)
-      for key, value in self.__dict__.iteritems()]
+      for key, value in self.__dict__.items()]
     return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
 
   def __eq__(self, other):

@@ -48,7 +48,7 @@ def pep8_to_camel_case(name, initial=False):
 
 def thrift_attrs(obj_or_cls):
     """Obtain Thrift data type attribute names for an instance or class."""
-    return [v[1] for v in obj_or_cls.thrift_spec.values()]
+    return [v[2] for v in obj_or_cls.thrift_spec if v is not None]
 
 
 def thrift_type_to_dict(obj):
@@ -63,11 +63,22 @@ def ensure_bytes(str_or_bytes, binary_type=six.binary_type,
     if isinstance(str_or_bytes, binary_type):
         return str_or_bytes
     if isinstance(str_or_bytes, text_type):
-        return str_or_bytes.encode('utf-8')
+        return bytes(str_or_bytes, encoding="utf-8")
     raise TypeError(
         "input must be a text or byte string, got {}"
         .format(type(str_or_bytes).__name__))
 
+
+def ensure_str(str_or_bytes, binary_type=six.binary_type,
+                 text_type=six.text_type):
+    """Convert text into bytes, and leaves bytes as-is."""
+    if isinstance(str_or_bytes, binary_type):
+        return str_or_bytes.decode("utf-8")
+    if isinstance(str_or_bytes, text_type):
+        return str_or_bytes
+    raise TypeError(
+        "input must be a text or byte string, got {}"
+        .format(type(str_or_bytes).__name__))
 
 def bytes_increment(b):
     """Increment and truncate a byte string (for sorting purposes)
@@ -86,3 +97,14 @@ def bytes_increment(b):
             b[i] += 1
             return bytes(b[:i+1])
     return None
+
+
+
+def saslIsOpen(self):
+    return self.transport.isOpen()
+
+
+def correct_thrift_SASL(ThriftSASL):
+    ThriftSASL.isOpen = saslIsOpen
+    return ThriftSASL
+
